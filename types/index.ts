@@ -1,20 +1,4 @@
-"use client";
 import { MouseEventHandler } from "react";
-
-export interface CustomButtonProps {
-  title: string;
-  containerStyles?: string;
-  handleClick?: MouseEventHandler<HTMLButtonElement>; // ✅ Corectat numele
-  btnType?: "button" | "submit";
-  rightIcon?: string;
-  isDisabled?: boolean;
-  textStyles?: string; // ✅ Adăugat
-}
-
-export interface SearchManufacturerProps {
-  manufacturer: string;
-  setManufacturer: React.Dispatch<React.SetStateAction<string>>;
-}
 
 export interface CarProps {
   city_mpg: number;
@@ -22,7 +6,7 @@ export interface CarProps {
   combination_mpg: number;
   cylinders: number;
   displacement: number;
-  drive: string;
+  drive: string;  
   fuel_type: string;
   highway_mpg: number;
   make: string;
@@ -30,31 +14,55 @@ export interface CarProps {
   transmission: string;
   year: number;
 }
-export interface FilterProps{
-    manufacturer: string;
-    year: number;
-    fuel: string;
-    limit: number;
-    model: string;
+
+export interface FilterProps {
+  manufacturer?: string;
+  year?: number;
+  model?: string;
+  limit?: number;
+  fuel?: string;
 }
+
+export interface HomeProps {
+  searchParams: FilterProps;
+}
+
+export interface CarCardProps {
+  model: string;
+  make: string;
+  mpg: number;
+  transmission: string;
+  year: number;
+  drive: string;
+  cityMPG: number;
+}
+
+export interface CustomButtonProps {
+  isDisabled?: boolean;
+  btnType?: "button" | "submit";
+  containerStyles?: string;
+  textStyles?: string;
+  title: string;
+  rightIcon?: string;
+  handleClick?: MouseEventHandler<HTMLButtonElement>;
+}
+
 export interface OptionProps {
-    title: string;
-    value: string;
+  title: string;
+  value: string;
 }
-    export interface CustomFilterProps {
+
+export interface CustomFilterProps {
   title: string;
   options: OptionProps[];
 }
+
 export interface ShowMoreProps {
   pageNumber: number;
   isNext: boolean;
 }
-export interface HomeProps {
-  searchParams: {
-    manufacturer?: string;
-    year?: number;
-    fuel?: string;
-    limit?: number;
-    model?: string;
-  };
+
+export interface SearchManuFacturerProps {
+  manufacturer: string;
+  setManuFacturer: (manufacturer: string) => void;
 }
